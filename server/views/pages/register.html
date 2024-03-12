@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewpoint" content="width-device-width, initial-scale=1.0">
+	<title>Register page | Zoomies</title>
+    <script>
+     function check() {
+        if(document.getElementById('password').value == '' || document.getElementById('confirmPassword').value == ''){
+            document.getElementById('message').innerHTML = '';
+        }
+  else if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Passwords match';
+    document.getElementById('submit').disabled = false;
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Passwords don\'t match';
+    document.getElementById('submit').disabled = true;
+  }
+}
+    </script>
+</head>
+<body>
+<br>
+<h1>Welcome</h1>
+<hr>
+<br><br><br>
+<section>
+<br>
+<form method = "post" action = "/register">
+       <label class="input">Name:</label>
+       <input type="text" id="name" name="name" class="input2" required/><br><br>
+       <label class="input">Email Id:</label>
+       <input type="email" id="emailId" name="emailId" class="input2" required/><br><br>
+	   <label class="input">Password:</label>
+       <input type="password" id="password" name="password" class="input2" onkeyup='check();' required/><br><br>
+       <label class="input">Confirm Password:</label>
+       <input type="password" id="confirmPassword" name="confirmPassword" class="input2" onkeyup="check();" required/><br><br>
+       <span id='message'></span>
+       <input type="submit" id = "submit" value = "Register" class="button">
+     </form>
+	 </section>
+</body>
