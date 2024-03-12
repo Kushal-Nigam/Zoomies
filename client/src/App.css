@@ -1,0 +1,247 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.dashboard {
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.App {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  
+
+.Nav {
+  width: 100%;
+  background-color: #ad0fdd;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  .Nav li {
+    padding: 1rem;
+  }
+  
+  .Nav li:hover, 
+  .Nav li:focus {
+    padding: 1rem;
+  }
+  
+  .Nav li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  
+  .Nav li:hover, 
+  .Nav li:focus, 
+  .Nav li:hover a, 
+  .Nav li:focus a  {
+    background-color: gray;
+    color: #585858;
+  }
+  
+  .Nav li:hover a, 
+  .Nav li:focus a {
+    cursor: pointer;
+  }
+
+  .custom-select {
+    min-width: 350px;
+    margin-bottom: 0.5rem;
+  }
+  
+  select {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5em 5em 0.5em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+  }
+  
+.pet {
+    width: 100%;
+    max-width: 205vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 1rem;
+    border-spacing: 15px;
+    border: 1px solid #333;
+    box-shadow: 0px 0px 15px gray;
+    color: #000;
+    margin: 0.5rem;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+
+.petType {
+    font-size: 1rem;
+    
+  }
+  
+  .postBody {
+    margin: 1rem 0;
+    font-size: 0.75rem;
+  }
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.form-box {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.logoutButton{
+    
+    line-height: 12px;
+    width: 75px;
+    font-size: 10pt;
+    font-family: tahoma;
+    margin-top: 1px;
+    margin-right: 2px;
+    position:absolute;
+    top:0;
+    right:0;
+    background-color: #ff3131;
+    color: white;
+}
+
+.updateButton{
+  
+    margin-left:2px;
+    width: 120px;
+    font-size: 10pt;
+    font-family: tahoma;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    left:0;
+    background-color: #54da54;
+    color: white;
+
+}
+
+.deletePetButton{
+  
+    width: 100px;
+    font-size: 10pt;
+    font-family: tahoma;
+    position:absolute;
+    margin-left: 90%;
+    margin-top: 9%;
+    background-color: #ff3131;
+    color: white;
+
+}
+
+.updatePetButton{
+    width: 100px;
+    font-size: 10pt;
+    font-family: tahoma;
+    position:absolute;
+    margin-left: 90%;
+    margin-top: 1%;
+    background-color: #54da54;
+    color: white;
+}
+
+
+.deleteButton{
+  
+        
+    line-height: 12px;
+    width: 120px;
+    font-size: 10pt;
+    font-family: tahoma;
+    margin-bottom: 2%;
+    margin-right: 2px;
+    position:relative;
+    margin-left: 90%;
+    background-color: #000000;
+    color: white;
+
+}
+
+.addPet {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
