@@ -14,16 +14,6 @@ const Dashboard =  () => {
     
 
     useEffect(()=>{
-        const authenticatedUser = async()=>{
-            if (await isAuthenticated()){
-               return setAuthenticated(true)
-            }else
-              return setAuthenticated(false)
-        }
-        authenticatedUser();
-    },[authenticated])
-
-    useEffect(()=>{
         const fetchPets = async () => { await axios.get(`/dashboard/${localStorage.getItem("userId")}`, { 
             headers: {
             'Authorization': "Bearer " + localStorage.getItem("jwt")
@@ -34,13 +24,22 @@ const Dashboard =  () => {
         })
         .catch(err => console.log(err));
     }
+    const authenticatedUser = async()=>{
+        if (await isAuthenticated()){
+            setAuthenticated(true)
+        }else{
+           setAuthenticated(false)
+        }
+    }
+    authenticatedUser();
     fetchPets()
     },[])
 
-    // Function to handle logout action
+    // Function to add a pet
     const addPet = () => {
         navigate('/dashboard/add');
     };
+    // Function to update a pet
     const updateProfile = () => {
         navigate('/dashboard/update');
     };
@@ -89,7 +88,6 @@ const Dashboard =  () => {
 
     localStorage.removeItem("jwt");
     localStorage.clear();
-    console.log("Logout");
     navigate('/login'); // Redirect to login page after sign out
     };
 

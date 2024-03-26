@@ -29,6 +29,7 @@ export const update = (data, next) => {
 
 //VALIDATION IF USER IS SIGNED IN
 export const isAuthenticated = async () => {
+    var tokenValid;
     // Checking if the user is authenticated
     if (typeof window === "undefined") {
         return false
@@ -36,30 +37,31 @@ export const isAuthenticated = async () => {
     if(localStorage.getItem("jwt")){
         const currentDate = new Date();
         if(localStorage.getItem("valid_until") > currentDate.getTime().toString()){
-            return localStorage.getItem("jwt")
+            tokenValid = true;
         }else{
-            return await getAccessToken()
+            await axios.get('/refresh', {
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                }
+            }).then(data => {
+                localStorage.removeItem("jwt");
+                localStorage.removeItem("valid_until");  
+                localStorage.setItem("jwt",data.data.accessToken)
+                const newValidDate = new Date();
+                localStorage.setItem("valid_until", (newValidDate.getTime() + 300000).toString())
+                tokenValid = true;
+              }).catch(err=> {
+                if(err.response.status === 403 || err.response.status === 401){
+                    tokenValid = false;
+                }else{
+                    return err.response.data; // Return error response data
+                }
+            })
         }
+        return tokenValid;
 
     }else{
         return false
     }
-}
-
-//Get new Access Token
-const getAccessToken = async ()=>{
-    await axios.get('/refresh', {
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        }
-    }).then(data => {
-        return localStorage.setItem("jwt",data.data.accessToken)
-      }).catch(err=> {
-        if(err.response.status === 403 || err.response.status === 401){
-            return false
-        }else{
-            return err.response.data; // Return error response data
-        }
-    })
 }

@@ -17,7 +17,7 @@ const handleLogout = async (req, res) => {
     // Delete refreshToken in db
     if(! await User.addToken(foundUser.email,null,null)) return res.sendStatus(500)
 
-    res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+    res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true, maxAge: 0 });
     res.status(204).json({'success':`Logged Out`}) 
 }
 

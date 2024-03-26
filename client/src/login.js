@@ -26,7 +26,7 @@ import axios from 'axios';
     const onSubmit = async event => {
         event.preventDefault();
         setValues({ ...values, success: false });
-        axios.post('/login/auth', JSON.stringify({email, password}), {
+        await axios.post('/login/auth', JSON.stringify({email, password}), {
           headers: {
               Accept: "application/json",
               "Content-Type": "application/json"

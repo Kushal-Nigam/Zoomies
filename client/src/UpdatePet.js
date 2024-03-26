@@ -67,7 +67,6 @@ const errorMessage = () => {
 
 
 return ( success? <Navigate to="/dashboard"/>:
-    <div className='form-container'>
         <div className='form-box'>
             <h2>Update Pet</h2>
             {errorMessage()}
@@ -75,8 +74,8 @@ return ( success? <Navigate to="/dashboard"/>:
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" value={name} onChange={handleChange("name")} required />
             </div>
-            <div className='form-group'>
-            <div>
+            
+            <div className="custom-select"  >
                 <label> Type of Pet
                     <select value={type} onChange={handleChange("type")}>
                         <option value="Dog">Dog</option>
@@ -84,7 +83,6 @@ return ( success? <Navigate to="/dashboard"/>:
                     </select>
                 </label>
                 </div>
-             </div>
             <div className='form-group'>
                 <label htmlFor="breed">Breed</label>
                 <input type="text" id="breed" name="breed" value={breed} onChange={handleChange("breed")} required />
@@ -93,7 +91,7 @@ return ( success? <Navigate to="/dashboard"/>:
                 <button id="submit" onClick={onSubmit}>Update</button>
             </div>
         </div>
-    </div>
+
 );
 }
 
